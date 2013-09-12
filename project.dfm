@@ -4,7 +4,7 @@ object Form1: TForm1
   BorderStyle = bsToolWindow
   Caption = 
     'Search Simulator 2013 Professional Edition | v 3.0.82  | Updates' +
-    ' Available | Unregistered Version'
+    ' Available | Registered to: Kristaps "nazis" Naglis'
   ClientHeight = 35
   ClientWidth = 674
   Color = clBtnFace
@@ -14,6 +14,7 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  WindowState = wsMaximized
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
