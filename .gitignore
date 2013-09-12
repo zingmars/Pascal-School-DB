@@ -10,3 +10,6 @@ __history
 bin/*
 *.local
 *.identcache
+Win32/
+*.res
+*.dproj.local
