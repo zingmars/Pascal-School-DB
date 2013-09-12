@@ -29,7 +29,7 @@ implementation
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   ComboBox1.AddItem('Sven', NIL);
-  ComboBox1.AddItem('iemacies', nil);
+  ComboBox1.AddItem('iemâcies', nil);
   ComboBox1.AddItem('grafisko', nil);
   ComboBox1.AddItem('programmesanu',nil);
 end;
