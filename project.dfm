@@ -13,4 +13,29 @@ object Form1: TForm1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object Button1: TButton
+    Left = 552
+    Top = 6
+    Width = 75
+    Height = 25
+    Caption = 'Mekl'#275't'
+    TabOrder = 0
+  end
+  object Edit1: TEdit
+    Left = 8
+    Top = 8
+    Width = 361
+    Height = 21
+    TabOrder = 1
+    Text = 'Edit1'
+  end
+  object ComboBox1: TComboBox
+    Left = 375
+    Top = 8
+    Width = 171
+    Height = 21
+    TabOrder = 2
+    Text = '-- Izv'#275'lies k'#257' mekl'#275't --'
+    OnClick = ComboBox1Click
+  end
 end

@@ -4,10 +4,14 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
 
 type
   TForm1 = class(TForm)
+    Button1: TButton;
+    Edit1: TEdit;
+    ComboBox1: TComboBox;
+    procedure ComboBox1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -19,6 +23,15 @@ var
 
 implementation
 
+
 {$R *.dfm}
 
+procedure TForm1.ComboBox1Click(Sender: TObject);
+begin
+      ComboBox1.AddItem('firstChoice', nil);
+      ComboBox1.AddItem('secondChoice', nil);
+      ComboBox1.AddItem('thirdChoice', nil);
+end;
+
 end.
+
