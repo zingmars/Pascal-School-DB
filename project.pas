@@ -28,10 +28,10 @@ implementation
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  ComboBox1.AddItem('Sven', NIL);
-  ComboBox1.AddItem('iemācies', nil);
-  ComboBox1.AddItem('grafisko', nil);
-  ComboBox1.AddItem('programmēšanu',nil);
+  ComboBox1.AddItem('Kabineta nr.', nil);
+  ComboBox1.AddItem('Skolotāja', nil);
+  ComboBox1.AddItem('Atslēgvārdiem', nil);
+  ComboBox1.AddItem('Priekšmeta',nil);
 end;
 
 end.
