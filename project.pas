@@ -1,4 +1,4 @@
-unit project;
+﻿unit project;
 
 interface
 
@@ -29,9 +29,9 @@ implementation
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   ComboBox1.AddItem('Sven', NIL);
-  ComboBox1.AddItem('iem�cies', nil);
+  ComboBox1.AddItem('iemācies', nil);
   ComboBox1.AddItem('grafisko', nil);
-  ComboBox1.AddItem('programmesanu',nil);
+  ComboBox1.AddItem('programmēšanu',nil);
 end;
 
 end.
