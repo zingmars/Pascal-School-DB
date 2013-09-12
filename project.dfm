@@ -11,6 +11,7 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Button1: TButton
@@ -36,6 +37,5 @@ object Form1: TForm1
     Height = 21
     TabOrder = 2
     Text = '-- Izv'#275'lies k'#257' mekl'#275't --'
-    OnClick = ComboBox1Click
   end
 end

@@ -11,7 +11,7 @@ type
     Button1: TButton;
     Edit1: TEdit;
     ComboBox1: TComboBox;
-    procedure ComboBox1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -26,11 +26,12 @@ implementation
 
 {$R *.dfm}
 
-procedure TForm1.ComboBox1Click(Sender: TObject);
+procedure TForm1.FormCreate(Sender: TObject);
 begin
-      ComboBox1.AddItem('firstChoice', nil);
-      ComboBox1.AddItem('secondChoice', nil);
-      ComboBox1.AddItem('thirdChoice', nil);
+  ComboBox1.AddItem('Sven', NIL);
+  ComboBox1.AddItem('iemacies', nil);
+  ComboBox1.AddItem('grafisko', nil);
+  ComboBox1.AddItem('programmesanu',nil);
 end;
 
 end.
