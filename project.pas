@@ -3,7 +3,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, SQLConnection1;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
 
 type
   TForm1 = class(TForm)
@@ -27,15 +27,7 @@ implementation
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin
-//Application.MessageBox('Ķipa tu atradi','title',MB_OK);
-  TSQLConnection1.Params.Add('Database=C:\pascal.db');
-  try
-    // Establish the connection.
-    TSQLConnection1.Connected := true;
-    Application.MessageBox('Sample Text','Connection established!',MB_OK)
-  except
-      ShowMessage('Exception raised with message');
-  end;
+Application.MessageBox('Ķipa tu atradi','title',MB_OK);
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
