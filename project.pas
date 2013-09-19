@@ -1,5 +1,4 @@
 ﻿unit project;
-
 interface
 
 uses
@@ -12,12 +11,12 @@ type
     Edit1: TEdit;
     ComboBox1: TComboBox;
     procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
   end;
-
 var
   Form1: TForm1;
 
@@ -25,6 +24,11 @@ implementation
 
 
 {$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+//Application.CreateForm(TForm2, Form2);
+end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin

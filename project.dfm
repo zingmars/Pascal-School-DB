@@ -14,7 +14,6 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  WindowState = wsMaximized
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -25,6 +24,7 @@ object Form1: TForm1
     Height = 25
     Caption = 'Mekl'#275't'
     TabOrder = 0
+    OnClick = Button1Click
   end
   object Edit1: TEdit
     Left = 8
