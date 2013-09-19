@@ -27,7 +27,7 @@ implementation
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin
-//Application.CreateForm(TForm2, Form2);
+Application.MessageBox('Ķipa tu atradi','title',MB_OK);
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
