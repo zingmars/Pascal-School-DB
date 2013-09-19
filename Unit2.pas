@@ -22,9 +22,9 @@ implementation
 
 {$R *.dfm}
 
-procedure TForm2.FormCreate();
+procedure TForm2.FormCreate(Sender: TObject);
 begin
-//lol
+//
 end;
 
 end.
