@@ -24,10 +24,13 @@ implementation
 
 {$R *.dfm}
 
+uses SQLConnection1;
+
 procedure TForm2.FormActivate(Sender: TObject);
 begin
 //Ðo palaiþ tad, kad tiek parâdîta forma. lolnavdokumentâcija.
 //Application.MessageBox( 'lol It exists','You just suck', MB_OK )
+SQLConnection1.TSQLConnection1.Create(Sender as TObject);
 end;
 
 procedure TForm2.FormCreate(Sender: TObject);
