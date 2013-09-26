@@ -42,13 +42,8 @@ begin
 slDBPath := ExtractFilepath(application.exename)
 + '\pascal.db';
 sldb := TSQLiteDatabase.Create(slDBPath);
-//sSQL := 'SELECT * FROM `prieksmeti` WHERE `id` = 1;';
-//sSQL := 'SELECT * FROM dbname.sqlite_master WHERE type="table"';
-
-sltb := slDb.GetTable('SELECT * FROM dbname.sqlite_master WHERE type="table"');
-StaticText1.Caption := inttostr(sltb.FieldAsInteger(sltb.FieldIndex['textid']))
-//sldb.ExecSQL(sSQL);
-//StaticText1.Caption := '';
+sltb := slDb.GetTable('SELECT * FROM `prieksmeti` WHERE `id` = 1');
+StaticText1.Caption := sltb.FieldByName['textid'];
 end;
 
 procedure TForm2.FormCreate(Sender: TObject);
