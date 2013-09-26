@@ -1,4 +1,4 @@
-object Form2: TForm2
+﻿object Form2: TForm2
   Left = 0
   Top = 0
   Caption = 'Form2'
@@ -86,5 +86,19 @@ object Form2: TForm2
       'ErrorResourceFile=')
     VendorLib = 'dbodbc*.dll'
     Top = 272
+  end
+  object Table1: TTable
+    TableName = 'tabula'
+    Left = 24
+    Top = 48
+    object Table1Pasniedzējs: TStringField
+      FieldName = 'Pasniedz'#275'js'
+    end
+    object Table1Kabinets: TIntegerField
+      FieldName = 'Kabinets'
+    end
+    object Table1Priekšmets: TStringField
+      FieldName = 'Priek'#353'mets'
+    end
   end
 end

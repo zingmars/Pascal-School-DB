@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB, Data.SqlExpr,
-  Data.DBXSybaseASA;
+  Data.DBXSybaseASA, Bde.DBTables;
 
 type
   TForm2 = class(TForm)
@@ -14,6 +14,10 @@ type
     StaticText1: TStaticText;
     StaticText2: TStaticText;
     StaticText3: TStaticText;
+    Table1: TTable;
+    Table1Pasniedzçjs: TStringField;
+    Table1Kabinets: TIntegerField;
+    Table1Priekðmets: TStringField;
     procedure FormCreate(Sender: TObject);
     procedure FormActivate(Sender: TObject);
   private
