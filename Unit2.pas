@@ -29,6 +29,7 @@ type
 var
   Form2: TForm2;
 
+
 implementation
 
 {$R *.dfm}
