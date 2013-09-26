@@ -1,9 +1,12 @@
-﻿object Form2: TForm2
+object Form2: TForm2
   Left = 0
   Top = 0
-  Caption = 'Form2'
-  ClientHeight = 300
-  ClientWidth = 635
+  BorderStyle = bsToolWindow
+  Caption = 
+    'Mekl'#275#353'anas Rezult'#257'ti [LICENCE VERIFICATION FAILED. ANTI-PIRACY T' +
+    'ASK FORCE HAS BEEN INFORMED]'
+  ClientHeight = 312
+  ClientWidth = 620
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,23 +19,23 @@
   PixelsPerInch = 96
   TextHeight = 13
   object Button1: TButton
-    Left = 264
-    Top = 248
+    Left = 537
+    Top = 280
     Width = 75
     Height = 25
     Caption = 'Button1'
     TabOrder = 0
   end
   object StaticText1: TStaticText
-    Left = 32
+    Left = 96
     Top = 16
-    Width = 48
+    Width = 60
     Height = 17
-    Caption = 'Skolot'#257'ja'
+    Caption = 'Pasniedz'#275'js'
     TabOrder = 1
   end
   object StaticText2: TStaticText
-    Left = 264
+    Left = 520
     Top = 16
     Width = 45
     Height = 17
@@ -40,12 +43,36 @@
     TabOrder = 2
   end
   object StaticText3: TStaticText
-    Left = 536
+    Left = 312
     Top = 16
     Width = 55
     Height = 17
-    Caption = 'Prieksmets'
+    Caption = 'Priek'#353'mets'
     TabOrder = 3
+  end
+  object ListView1: TListView
+    Left = 16
+    Top = 39
+    Width = 225
+    Height = 234
+    Columns = <>
+    TabOrder = 4
+  end
+  object ListView2: TListView
+    Left = 256
+    Top = 39
+    Width = 185
+    Height = 234
+    Columns = <>
+    TabOrder = 5
+  end
+  object ListView3: TListView
+    Left = 459
+    Top = 39
+    Width = 153
+    Height = 235
+    Columns = <>
+    TabOrder = 6
   end
   object SQLConnection1: TSQLConnection
     DriverName = 'ASA'
@@ -86,19 +113,5 @@
       'ErrorResourceFile=')
     VendorLib = 'dbodbc*.dll'
     Top = 272
-  end
-  object Table1: TTable
-    TableName = 'tabula'
-    Left = 24
-    Top = 48
-    object Table1Pasniedzējs: TStringField
-      FieldName = 'Pasniedz'#275'js'
-    end
-    object Table1Kabinets: TIntegerField
-      FieldName = 'Kabinets'
-    end
-    object Table1Priekšmets: TStringField
-      FieldName = 'Priek'#353'mets'
-    end
   end
 end

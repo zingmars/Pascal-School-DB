@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB, Data.SqlExpr,
-  Data.DBXSybaseASA, Bde.DBTables;
+  Data.DBXSybaseASA, Bde.DBTables, Vcl.ComCtrls;
 
 type
   TForm2 = class(TForm)
@@ -14,10 +14,9 @@ type
     StaticText1: TStaticText;
     StaticText2: TStaticText;
     StaticText3: TStaticText;
-    Table1: TTable;
-    Table1Pasniedzçjs: TStringField;
-    Table1Kabinets: TIntegerField;
-    Table1Priekðmets: TStringField;
+    ListView1: TListView;
+    ListView2: TListView;
+    ListView3: TListView;
     procedure FormCreate(Sender: TObject);
     procedure FormActivate(Sender: TObject);
   private
@@ -48,6 +47,7 @@ begin
 //Application.MessageBox( 'lol It exists','You just suck', MB_OK )
 slDBPath := ExtractFilepath(application.exename)
 + '\pascal.db';
+{
 sldb := TSQLiteDatabase.Create(slDBPath);
 sltb := slDb.GetTable('SELECT * FROM `skolotaji` WHERE `id` = 1');
 StaticText1.Caption := sltb.FieldByName['vards'] + ' ' + sltb.FieldByName['uzvards'];
@@ -57,7 +57,13 @@ sltb2 := slDb.GetTable('SELECT * FROM `prieksmeti` WHERE `textid` = "'+ dieHardF
 
 StaticText2.Caption := sltb2.FieldByName['nosaukums'];
 end;
+}
 
+StaticText1.Caption := 'Pasniedzçjs';
+StaticText2.Caption := 'Priekðmets';
+StaticText3.Caption := 'Kabinets';
+
+end;
 procedure TForm2.FormCreate(Sender: TObject);
 begin
 //Tiek izsaukts tad, kad tiek palaista programma.
