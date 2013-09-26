@@ -46,10 +46,11 @@ slDBPath := ExtractFilepath(application.exename)
 sldb := TSQLiteDatabase.Create(slDBPath);
 sltb := slDb.GetTable('SELECT * FROM `skolotaji` WHERE `id` = 1');
 StaticText1.Caption := sltb.FieldByName['vards'] + ' ' + sltb.FieldByName['uzvards'];
-//StaticText2.Caption := sltb.FieldByName['prieksmets'];
-sltb2 := slDb.GetTable('SELECT * FROM `prieksmeti` WHERE `textid` = mat');
+dieHardFix := sltb.FieldByName['prieksmets'];
+StaticText3.Caption := sltb.FieldByName['kabinets'];
+sltb2 := slDb.GetTable('SELECT * FROM `prieksmeti` WHERE `textid` = "'+ dieHardFix +'"');
 
-StaticText3.Caption := sltb2.FieldByName['nosaukums'];
+StaticText2.Caption := sltb2.FieldByName['nosaukums'];
 end;
 
 procedure TForm2.FormCreate(Sender: TObject);
