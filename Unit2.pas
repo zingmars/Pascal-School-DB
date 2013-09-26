@@ -40,11 +40,12 @@ begin
 //Ðo palaiþ tad, kad tiek parâdîta forma. lolnavdokumentâcija.
 //Application.MessageBox( 'lol It exists','You just suck', MB_OK )
 slDBPath := ExtractFilepath(application.exename)
-+ 'pascal.db';
++ '\pascal.db';
 sldb := TSQLiteDatabase.Create(slDBPath);
-sSQL := 'SELECT * FROM `prieksmeti` WHERE `id` = 1;';
+//sSQL := 'SELECT * FROM `prieksmeti` WHERE `id` = 1;';
+//sSQL := 'SELECT * FROM dbname.sqlite_master WHERE type="table"';
 
-sltb := slDb.GetTable('SELECT * FROM `prieksmeti` WHERE `id` = 1;');
+sltb := slDb.GetTable('SELECT * FROM dbname.sqlite_master WHERE type="table"');
 StaticText1.Caption := inttostr(sltb.FieldAsInteger(sltb.FieldIndex['textid']))
 //sldb.ExecSQL(sSQL);
 //StaticText1.Caption := '';
