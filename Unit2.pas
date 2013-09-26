@@ -33,7 +33,9 @@ uses SQLite3, SQLiteTable3;
 var   slDBpath: string;
       sldb: TSQLiteDatabase;
       sltb: TSQLIteTable;
+      sltb2: TSQLIteTable;
       sSQL: String;
+      dieHardFix: String;
 
 procedure TForm2.FormActivate(Sender: TObject);
 begin
@@ -42,8 +44,12 @@ begin
 slDBPath := ExtractFilepath(application.exename)
 + '\pascal.db';
 sldb := TSQLiteDatabase.Create(slDBPath);
-sltb := slDb.GetTable('SELECT * FROM `prieksmeti` WHERE `id` = 1');
-StaticText1.Caption := sltb.FieldByName['textid'];
+sltb := slDb.GetTable('SELECT * FROM `skolotaji` WHERE `id` = 1');
+StaticText1.Caption := sltb.FieldByName['vards'] + ' ' + sltb.FieldByName['uzvards'];
+//StaticText2.Caption := sltb.FieldByName['prieksmets'];
+sltb2 := slDb.GetTable('SELECT * FROM `prieksmeti` WHERE `textid` = mat');
+
+StaticText3.Caption := sltb2.FieldByName['nosaukums'];
 end;
 
 procedure TForm2.FormCreate(Sender: TObject);
