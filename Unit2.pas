@@ -19,6 +19,7 @@ type
     ListView3: TListView;
     procedure FormCreate(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,6 +42,11 @@ var   slDBpath: string;
       sSQL: String;
       dieHardFix: String;
 
+procedure TForm2.Button1Click(Sender: TObject);
+begin
+Unit2.Form2.Hide
+end;
+
 procedure TForm2.FormActivate(Sender: TObject);
 begin
 //Ðo palaiþ tad, kad tiek parâdîta forma. lolnavdokumentâcija.
@@ -58,10 +64,6 @@ sltb2 := slDb.GetTable('SELECT * FROM `prieksmeti` WHERE `textid` = "'+ dieHardF
 StaticText2.Caption := sltb2.FieldByName['nosaukums'];
 end;
 }
-
-StaticText1.Caption := 'Pasniedzçjs';
-StaticText2.Caption := 'Priekðmets';
-StaticText3.Caption := 'Kabinets';
 
 end;
 procedure TForm2.FormCreate(Sender: TObject);

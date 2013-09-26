@@ -23,8 +23,9 @@ object Form2: TForm2
     Top = 280
     Width = 75
     Height = 25
-    Caption = 'Button1'
+    Caption = 'Aizv'#275'rt'
     TabOrder = 0
+    OnClick = Button1Click
   end
   object StaticText1: TStaticText
     Left = 96

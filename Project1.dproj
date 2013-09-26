@@ -79,13 +79,6 @@
 			<DCC_DebugInformation>false</DCC_DebugInformation>
 		</PropertyGroup>
 		<ItemGroup>
-			<Reference Include="sqlite3.dll">
-				<AssemblyName/>
-				<HintPath>sqlite3.dll</HintPath>
-				<AssemblyTag>sqlite3</AssemblyTag>
-			</Reference>
-		</ItemGroup>
-		<ItemGroup>
 			<DelphiCompile Include="$(MainSource)">
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
@@ -109,6 +102,13 @@
 				<Key>Cfg_1</Key>
 				<CfgParent>Base</CfgParent>
 			</BuildConfiguration>
+		</ItemGroup>
+		<ItemGroup>
+			<Reference Include="sqlite3.dll">
+				<AssemblyName/>
+				<HintPath>sqlite3.dll</HintPath>
+				<AssemblyTag>sqlite3</AssemblyTag>
+			</Reference>
 		</ItemGroup>
 		<ProjectExtensions>
 			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
