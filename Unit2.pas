@@ -12,9 +12,6 @@ type
   TForm2 = class(TForm)
     Button1: TButton;
     SQLConnection1: TSQLConnection;
-    StaticText1: TStaticText;
-    StaticText2: TStaticText;
-    StaticText3: TStaticText;
     ListView1: TListView;
     procedure FormCreate(Sender: TObject);
     procedure FormActivate(Sender: TObject);
@@ -53,6 +50,8 @@ end;
 procedure TForm2.FormActivate(Sender: TObject);
 begin
 //Ðo palaiþ tad, kad tiek parâdîta forma. lolnavdokumentâcija.
+//Piezîme - to palaiþ katru reizi, kad tiek fokusçts dotais logs.
+//aka: TODO: Move to formcreate();
 //Datubâze
 slDBPath := ExtractFilepath(application.exename)
 + '\pascal.db';

@@ -26,41 +26,16 @@ object Form2: TForm2
     TabOrder = 0
     OnClick = Button1Click
   end
-  object StaticText1: TStaticText
-    Left = 96
-    Top = 16
-    Width = 60
-    Height = 17
-    Caption = 'Pasniedz'#275'js'
-    TabOrder = 1
-  end
-  object StaticText2: TStaticText
-    Left = 520
-    Top = 16
-    Width = 45
-    Height = 17
-    Caption = 'Kabinets'
-    TabOrder = 2
-  end
-  object StaticText3: TStaticText
-    Left = 312
-    Top = 16
-    Width = 55
-    Height = 17
-    Caption = 'Priek'#353'mets'
-    TabOrder = 3
-  end
   object ListView1: TListView
     AlignWithMargins = True
     Left = 16
-    Top = 39
+    Top = 16
     Width = 585
-    Height = 234
+    Height = 257
     Columns = <>
     DragKind = dkDock
     GridLines = True
-    Items.ItemData = {}
-    TabOrder = 4
+    TabOrder = 1
     TabStop = False
     ViewStyle = vsReport
   end
