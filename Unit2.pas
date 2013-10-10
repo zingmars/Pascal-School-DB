@@ -44,7 +44,8 @@ var   slDBpath: string;
 
 procedure TForm2.Button1Click(Sender: TObject);
 begin
-Unit2.Form2.Hide
+Unit2.Form2.Hide;
+Form1.Show;
 end;
 
 procedure TForm2.FormActivate(Sender: TObject);
