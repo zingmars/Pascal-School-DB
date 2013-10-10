@@ -15,8 +15,6 @@ type
     StaticText2: TStaticText;
     StaticText3: TStaticText;
     ListView1: TListView;
-    ListView2: TListView;
-    ListView3: TListView;
     procedure FormCreate(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -40,7 +38,9 @@ var   slDBpath: string;
       sltb: TSQLIteTable;
       sltb2: TSQLIteTable;
       sSQL: String;
-      dieHardFix: String;
+
+      Col: TListColumn;
+      Itm: TListItem;
 
 procedure TForm2.Button1Click(Sender: TObject);
 begin
@@ -50,9 +50,51 @@ end;
 procedure TForm2.FormActivate(Sender: TObject);
 begin
 //Ðo palaiþ tad, kad tiek parâdîta forma. lolnavdokumentâcija.
-//Application.MessageBox( 'lol It exists','You just suck', MB_OK )
+
+//Datubâze
 slDBPath := ExtractFilepath(application.exename)
 + '\pascal.db';
+
+
+//Pievienojam kolonas (BUG: Pirmâs kolonas nosaukums negrib centrçties)
+//Vispâr tâ izskatâs labâk. Nelabot.
+//Kolonas ir tâdâ kârtîbâ, kâdâ tu tâs pievieno.
+{ Kâ strâdâ (jo dokumentâcija neeksistç):
+Col := ListView1.Columns.add;
+Col.Caption := <string>;
+Col.Alignment := <integer>; //iespçjamie varianti: taLeftJustify, taRightJustify, taCenter.
+Col.Width := <integer>; }
+Col := ListView1.Columns.Add;
+Col.Caption := 'Pasniedzçjs';
+Col.Alignment := taCenter;
+Col.Width := ListView1.Width div 3;
+
+Col := ListView1.Columns.Add;
+Col.Caption := 'Priekðmets';
+Col.Alignment := taCenter;
+Col.Width := ListView1.Width div 3;
+
+Col := ListView1.Columns.Add;
+Col.Caption := 'Kabinets';
+Col.Alignment := taCenter;
+Col.Width := ListView1.Width div 3;
+
+
+//Pievienojam visu ko var pievienot. (TODO: Izvelkam SQL)
+{ Kâ strâdâ:
+Itm := ListView1.Items.Add;
+Itm.Caption := <string>;
+Item.SubItem.Add(<string); //pievieno datus nâkamajâ kolonâ. Iet pçc kârtas.
+//Var pievienot tik substring, cik vajag, bet mums ir tikai 3 kolonas.
+//Liekie subitems tiks ignorçti }
+Itm := ListView1.Items.Add;
+Itm.Caption := 'test';
+
+Itm := ListView1.Items.Add;
+Itm.Caption := 'test2';
+Itm.SubItems.Add('tester');
+Itm.SubItems.Add('tester2');
+
 {
 sldb := TSQLiteDatabase.Create(slDBPath);
 sltb := slDb.GetTable('SELECT * FROM `skolotaji` WHERE `id` = 1');
@@ -69,7 +111,6 @@ end;
 procedure TForm2.FormCreate(Sender: TObject);
 begin
 //Tiek izsaukts tad, kad tiek palaista programma.
-//Application.MessageBox( 'It exists','You just suck', MB_OK )
 end;
 
 end.

@@ -52,28 +52,18 @@ object Form2: TForm2
     TabOrder = 3
   end
   object ListView1: TListView
+    AlignWithMargins = True
     Left = 16
     Top = 39
-    Width = 225
+    Width = 585
     Height = 234
     Columns = <>
+    DragKind = dkDock
+    GridLines = True
+    Items.ItemData = {}
     TabOrder = 4
-  end
-  object ListView2: TListView
-    Left = 256
-    Top = 39
-    Width = 185
-    Height = 234
-    Columns = <>
-    TabOrder = 5
-  end
-  object ListView3: TListView
-    Left = 459
-    Top = 39
-    Width = 153
-    Height = 235
-    Columns = <>
-    TabOrder = 6
+    TabStop = False
+    ViewStyle = vsReport
   end
   object SQLConnection1: TSQLConnection
     DriverName = 'ASA'

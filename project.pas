@@ -29,9 +29,8 @@ uses Unit2;
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin
-//Application.MessageBox('Ķipa tu atradi','title',MB_OK);
-//TForm2.CreateNew(Sender as TControl); //it kā kompilējas, bet formu neizveido
-//Unit2.Form2.Enabled := true;
+//Atver otro formu.
+//TODO: pārsūtīt datus no textbox un combobox uz Form2.
 Unit2.Form2.Show;
 end;
 
