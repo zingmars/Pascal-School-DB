@@ -1,3 +1,4 @@
+// nahuj bïad githubs nedod garumzîmes. Pizdjec bïad.
 unit Unit2;
 
 interface
@@ -32,7 +33,7 @@ implementation
 
 {$R *.dfm}
 
-uses SQLite3, SQLiteTable3;
+uses SQLite3, SQLiteTable3, project;
 var   slDBpath: string;
       sldb: TSQLiteDatabase;
       sltb: TSQLIteTable;
@@ -42,6 +43,14 @@ var   slDBpath: string;
       Col: TListColumn;
       Itm: TListItem;
 
+      testing: integer;
+
+constructor Tform2.Create(AOwner: TComponent);
+begin
+  //
+
+end;
+
 procedure TForm2.Button1Click(Sender: TObject);
 begin
 Unit2.Form2.Hide
@@ -50,11 +59,9 @@ end;
 procedure TForm2.FormActivate(Sender: TObject);
 begin
 //Ðo palaiþ tad, kad tiek parâdîta forma. lolnavdokumentâcija.
-
 //Datubâze
 slDBPath := ExtractFilepath(application.exename)
 + '\pascal.db';
-
 
 //Pievienojam kolonas (BUG: Pirmâs kolonas nosaukums negrib centrçties)
 //Vispâr tâ izskatâs labâk. Nelabot.
@@ -81,17 +88,18 @@ Col.Width := ListView1.Width div 3;
 
 
 //Pievienojam visu ko var pievienot. (TODO: Izvelkam SQL)
+//BUG: Var iezîmçt tikai 1. kolonas datus. Vainoju Embarcadero. IDGAF.
 { Kâ strâdâ:
 Itm := ListView1.Items.Add;
 Itm.Caption := <string>;
 Item.SubItem.Add(<string); //pievieno datus nâkamajâ kolonâ. Iet pçc kârtas.
 //Var pievienot tik substring, cik vajag, bet mums ir tikai 3 kolonas.
-//Liekie subitems tiks ignorçti }
+//Liekie subitems tiks ignorçti, un nebûs parâdîti. }
 Itm := ListView1.Items.Add;
 Itm.Caption := 'test';
 
 Itm := ListView1.Items.Add;
-Itm.Caption := 'test2';
+Itm.Caption := IntToStr(testing);
 Itm.SubItems.Add('tester');
 Itm.SubItems.Add('tester2');
 
@@ -106,11 +114,11 @@ sltb2 := slDb.GetTable('SELECT * FROM `prieksmeti` WHERE `textid` = "'+ dieHardF
 StaticText2.Caption := sltb2.FieldByName['nosaukums'];
 end;
 }
-
 end;
+
 procedure TForm2.FormCreate(Sender: TObject);
 begin
-//Tiek izsaukts tad, kad tiek palaista programma.
+//Tiek izsaukts tad, kad tiek palaista programma. Teorçtiski. Realitâtç ðî figòa nestrâdâ.
 end;
 
 end.

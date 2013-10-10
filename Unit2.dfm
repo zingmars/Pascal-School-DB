@@ -15,7 +15,6 @@ object Form2: TForm2
   Font.Style = []
   OldCreateOrder = False
   OnActivate = FormActivate
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Button1: TButton

@@ -19,6 +19,7 @@ type
   end;
 var
   Form1: TForm1;
+  testint: integer;
 
 implementation
 
@@ -27,11 +28,17 @@ implementation
 
 uses Unit2;
 
+
 procedure TForm1.Button1Click(Sender: TObject);
 begin
 //Atver otro formu.
 //TODO: pārsūtīt datus no textbox un combobox uz Form2.
-Unit2.Form2.Show;
+//Unit2.Form2.FormCreate(sender as TComponent, testint);
+testint := 1;
+Application.CreateForm(TForm2, Form2);
+Form2.Show;
+Form1.Hide;
+//TODO: Form1.Close;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
