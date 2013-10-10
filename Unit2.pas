@@ -45,12 +45,6 @@ var   slDBpath: string;
 
       testing: integer;
 
-constructor Tform2.Create(AOwner: TComponent);
-begin
-  //
-
-end;
-
 procedure TForm2.Button1Click(Sender: TObject);
 begin
 Unit2.Form2.Hide

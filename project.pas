@@ -37,7 +37,8 @@ begin
 testint := 1;
 Application.CreateForm(TForm2, Form2);
 Form2.Show;
-Form1.Hide;
+//Pirmo formu neslēpjam, jo sanāks tā, ka šī programma visu laiku griezīsies fonā.
+//Form1.Hide;
 //TODO: Form1.Close;
 end;
 
