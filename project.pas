@@ -12,7 +12,7 @@ type
     ComboBox1: TComboBox;
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
-    Function ReturnData : integer;
+    Function ReturnData : string;
   private
     { Private declarations }
   public
@@ -20,7 +20,6 @@ type
   end;
 var
   Form1: TForm1;
-  testint: integer;
 
 implementation
 
@@ -32,15 +31,11 @@ uses Unit2;
 procedure TForm1.Button1Click(Sender: TObject);
 begin
 //Atver otro formu.
-//TODO: pārsūtīt datus no textbox un combobox uz Form2.
-//Unit2.Form2.FormCreate(sender as TComponent, testint);
-testint := 1337;
-
 Application.CreateForm(TForm2, Form2);
 Form2.Show;
-//Pirmo formu neslēpjam, jo sanāks tā, ka šī programma visu laiku griezīsies fonā.
+
+//Pirmo formu neslēpjam, jo sanāks tā, ka šī programma visu laiku griezīsies fonā. (TODO: BUG)
 //Form1.Hide;
-//TODO: Form1.Close;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -51,10 +46,10 @@ begin
   ComboBox1.AddItem('Priekšmeta',nil);
 end;
 
-function TForm1.ReturnData: integer;
+function TForm1.ReturnData: string;
 begin
 //Rezultātu logs izsauc šo funkciju lai iegūtu informāciju.
-Result := testint;
+Result := Edit1.Text;
 end;
 
 end.

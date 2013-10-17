@@ -40,7 +40,7 @@ var   slDBpath: string;
 
 procedure TForm2.Button1Click(Sender: TObject);
 begin
-Unit2.Form2.Hide;
+Unit2.Form2.Close;
 Form1.Show;
 end;
 
@@ -49,12 +49,10 @@ begin
 //Ðo palaiþ tad, kad tiek parâdîta forma. lolnavdokumentâcija.
 //Piezîme - to palaiþ katru reizi, kad tiek fokusçts dotais logs.
 //aka: TODO: Move to formcreate();
-//Datubâze
-slDBPath := ExtractFilepath(application.exename)
-+ '\pascal.db';
 
-//Pievienojam kolonas (BUG: Pirmâs kolonas nosaukums negrib centrçties)
-//Vispâr tâ izskatâs labâk. Nelabot.
+//Datubâze
+//slDBPath := ExtractFilepath(application.exename) + '\pascal.db';
+
 //Kolonas ir tâdâ kârtîbâ, kâdâ tu tâs pievieno.
 { Kâ strâdâ (jo dokumentâcija neeksistç):
 Col := ListView1.Columns.add;
@@ -87,13 +85,12 @@ Item.SubItem.Add(<string); //pievieno datus nâkamajâ kolonâ. Iet pçc kârtas.
 //Var pievienot tik substring, cik vajag, bet mums ir tikai 3 kolonas.
 //Liekie subitems tiks ignorçti, un nebûs parâdîti. }
 Itm := ListView1.Items.Add;
-Itm.Caption := 'test';
-Itm.Caption := IntToStr(Form1.ReturnData);
+Itm.Caption := Form1.ReturnData;
+Itm.SubItems.Add(IntToStr(Form1.ComboBox1.ItemIndex));
+Itm.SubItems.Add('DEBUG');
 
-Itm := ListView1.Items.Add;
-Itm.Caption := IntToStr(testing);
-Itm.SubItems.Add('tester');
-Itm.SubItems.Add('tester2');
+//TODO: FOR LOOP
+{}
 
 {
 sldb := TSQLiteDatabase.Create(slDBPath);
@@ -102,8 +99,6 @@ StaticText1.Caption := sltb.FieldByName['vards'] + ' ' + sltb.FieldByName['uzvar
 dieHardFix := sltb.FieldByName['prieksmets'];
 StaticText3.Caption := sltb.FieldByName['kabinets'];
 sltb2 := slDb.GetTable('SELECT * FROM `prieksmeti` WHERE `textid` = "'+ dieHardFix +'"');
-
-StaticText2.Caption := sltb2.FieldByName['nosaukums'];
 end;
 }
 end;
