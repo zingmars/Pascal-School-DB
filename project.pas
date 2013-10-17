@@ -28,10 +28,16 @@ uses Unit2;
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin
+if ComboBox1.ItemIndex = -1 then
+MessageBox(0, 'Klume', 'Ludzu noradiet meklesanas veidu', +mb_OK +mb_ICONWARNING)
+//ShowMessage('')
+else
+begin
 //Atver otro formu.
 Application.CreateForm(TForm2, Form2);
 Form2.Show;
 Form1.Hide;
+end;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
