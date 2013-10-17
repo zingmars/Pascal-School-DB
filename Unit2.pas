@@ -1,4 +1,3 @@
-// nahuj bïad githubs nedod garumzîmes. Pizdjec bïad.
 unit Unit2;
 
 interface
@@ -32,9 +31,6 @@ implementation
 
 uses SQLite3, SQLiteTable3, project;
 var   slDBpath: string;
-      sldb: TSQLiteDatabase;
-      sltb: TSQLIteTable;
-      sltb2: TSQLIteTable;
       sSQL: String;
 
       Col: TListColumn;
@@ -65,6 +61,7 @@ Col := ListView1.Columns.add;
 Col.Caption := <string>;
 Col.Alignment := <integer>; //iespçjamie varianti: taLeftJustify, taRightJustify, taCenter.
 Col.Width := <integer>; }
+
 Col := ListView1.Columns.Add;
 Col.Caption := 'Pasniedzçjs';
 Col.Alignment := taCenter;
@@ -91,6 +88,7 @@ Item.SubItem.Add(<string); //pievieno datus nâkamajâ kolonâ. Iet pçc kârtas.
 //Liekie subitems tiks ignorçti, un nebûs parâdîti. }
 Itm := ListView1.Items.Add;
 Itm.Caption := 'test';
+Itm.Caption := IntToStr(Form1.ReturnData);
 
 Itm := ListView1.Items.Add;
 Itm.Caption := IntToStr(testing);
@@ -112,7 +110,10 @@ end;
 
 procedure TForm2.FormCreate(Sender: TObject);
 begin
-//Tiek izsaukts tad, kad tiek palaista programma. Teorçtiski. Realitâtç ðî figòa nestrâdâ.
+//Tiek izsaukts tad, kad tiek palaista programma.
+//Teorçtiski. Realitâtç ðî figòa nestrâdâ.
+//Man izdevâs ðo palaist tikai tad, kad programma izveido logu no Project1.dpr.
+//MessageBox(0,'init','init', +mb_YesNo +mb_ICONINFORMATION);
 end;
 
 end.
