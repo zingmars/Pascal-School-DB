@@ -1,0 +1,5 @@
+TODO LIST:
+1) Ierakstot kaut ko meklçðanas logâ un nospieþot enter vajadzçtu meklçt. Tâ vietâ ir jâspieþ uz GUI
+2) Otrais logs neparâdâs ne alt+tab, ne taskbar.
+3) Pietîrît komentârus
+4) Visi TODO kas atrodas kodâ.
