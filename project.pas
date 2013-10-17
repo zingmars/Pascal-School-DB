@@ -22,8 +22,6 @@ var
   Form1: TForm1;
 
 implementation
-
-
 {$R *.dfm}
 
 uses Unit2;
@@ -33,9 +31,7 @@ begin
 //Atver otro formu.
 Application.CreateForm(TForm2, Form2);
 Form2.Show;
-
-//Pirmo formu neslēpjam, jo sanāks tā, ka šī programma visu laiku griezīsies fonā. (TODO: BUG)
-//Form1.Hide;
+Form1.Hide;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);

@@ -12,9 +12,12 @@ type
     Button1: TButton;
     SQLConnection1: TSQLConnection;
     ListView1: TListView;
+    Button2: TButton;
     procedure FormCreate(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,18 +41,25 @@ var   slDBpath: string;
 
       testing: integer;
 
+
+//TODO: pabeigt loga aizvçrðanu.
 procedure TForm2.Button1Click(Sender: TObject);
 begin
 Unit2.Form2.Close;
 Form1.Show;
 end;
 
-procedure TForm2.FormActivate(Sender: TObject);
+procedure TForm2.Button2Click(Sender: TObject);
 begin
+Form1.Show;
+Form2.Close;
+end;
+
 //Ðo palaiþ tad, kad tiek parâdîta forma. lolnavdokumentâcija.
 //Piezîme - to palaiþ katru reizi, kad tiek fokusçts dotais logs.
 //aka: TODO: Move to formcreate();
-
+procedure TForm2.FormActivate(Sender: TObject);
+begin
 //Datubâze
 //slDBPath := ExtractFilepath(application.exename) + '\pascal.db';
 
@@ -103,11 +113,19 @@ end;
 }
 end;
 
-procedure TForm2.FormCreate(Sender: TObject);
+
+//Aizveram programmu, jo mçs nemâkam properly tikt galâ ar logiem.
+procedure TForm2.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
+if Form1.Showing = false then
+Form1.Close;
+end;
+
 //Tiek izsaukts tad, kad tiek palaista programma.
 //Teorçtiski. Realitâtç ðî figòa nestrâdâ.
 //Man izdevâs ðo palaist tikai tad, kad programma izveido logu no Project1.dpr.
+procedure TForm2.FormCreate(Sender: TObject);
+begin
 //MessageBox(0,'init','init', +mb_YesNo +mb_ICONINFORMATION);
 end;
 

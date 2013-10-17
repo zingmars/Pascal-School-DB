@@ -15,6 +15,7 @@ object Form2: TForm2
   Font.Style = []
   OldCreateOrder = False
   OnActivate = FormActivate
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object Button1: TButton
@@ -38,6 +39,15 @@ object Form2: TForm2
     TabOrder = 1
     TabStop = False
     ViewStyle = vsReport
+  end
+  object Button2: TButton
+    Left = 456
+    Top = 279
+    Width = 75
+    Height = 25
+    Caption = 'Mekl'#275't v'#275'l'
+    TabOrder = 2
+    OnClick = Button2Click
   end
   object SQLConnection1: TSQLConnection
     DriverName = 'ASA'
