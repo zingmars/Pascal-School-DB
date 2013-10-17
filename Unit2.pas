@@ -42,7 +42,6 @@ var   slDBpath: string;
       testing: integer;
 
 
-//TODO: pabeigt loga aizvçrðanu.
 procedure TForm2.Button1Click(Sender: TObject);
 begin
 Unit2.Form2.Close;
@@ -55,10 +54,23 @@ Form1.Show;
 Form2.Close;
 end;
 
-//Ðo palaiþ tad, kad tiek parâdîta forma. lolnavdokumentâcija.
+//Ðo palaiþ tad, kad tiek fokusçta forma.
 //Piezîme - to palaiþ katru reizi, kad tiek fokusçts dotais logs.
-//aka: TODO: Move to formcreate();
 procedure TForm2.FormActivate(Sender: TObject);
+begin
+//
+end;
+
+
+//Aizveram programmu, jo mçs nemâkam properly tikt galâ ar logiem.
+procedure TForm2.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+if Form1.Showing = false then
+Form1.Close;
+end;
+
+//Tiek izsaukts tad, kad tiek palaista forma.
+procedure TForm2.FormCreate(Sender: TObject);
 begin
 //Datubâze
 //slDBPath := ExtractFilepath(application.exename) + '\pascal.db';
@@ -95,9 +107,9 @@ Item.SubItem.Add(<string); //pievieno datus nâkamajâ kolonâ. Iet pçc kârtas.
 //Var pievienot tik substring, cik vajag, bet mums ir tikai 3 kolonas.
 //Liekie subitems tiks ignorçti, un nebûs parâdîti. }
 Itm := ListView1.Items.Add;
-Itm.Caption := Form1.ReturnData;
-Itm.SubItems.Add(IntToStr(Form1.ComboBox1.ItemIndex));
-Itm.SubItems.Add('DEBUG');
+Itm.Caption := 'DEBUG';
+Itm.SubItems.Add('Searchpam: ' + Form1.ReturnData);
+Itm.SubItems.Add('Searchtype: ' + IntToStr(Form1.ComboBox1.ItemIndex));
 
 //TODO: FOR LOOP
 {}
@@ -111,22 +123,6 @@ StaticText3.Caption := sltb.FieldByName['kabinets'];
 sltb2 := slDb.GetTable('SELECT * FROM `prieksmeti` WHERE `textid` = "'+ dieHardFix +'"');
 end;
 }
-end;
-
-
-//Aizveram programmu, jo mçs nemâkam properly tikt galâ ar logiem.
-procedure TForm2.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-if Form1.Showing = false then
-Form1.Close;
-end;
-
-//Tiek izsaukts tad, kad tiek palaista programma.
-//Teorçtiski. Realitâtç ðî figòa nestrâdâ.
-//Man izdevâs ðo palaist tikai tad, kad programma izveido logu no Project1.dpr.
-procedure TForm2.FormCreate(Sender: TObject);
-begin
-//MessageBox(0,'init','init', +mb_YesNo +mb_ICONINFORMATION);
 end;
 
 end.
