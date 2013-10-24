@@ -118,21 +118,21 @@ case Form1.ComboBox1.ItemIndex of
 end;
 sltb := slDb.GetTable(sSQL);
 
-if sltb.FieldByName['vards'] <> '' then
-begin
-for loop := 0 to sltb.RowCount-1 do
-begin
-  Itm := ListView1.Items.Add;
-  Itm.Caption := sltb.FieldByName['vards'];
-  sltb2 := slDb.GetTable('select nosaukums from prieksmeti where textid = "' + sltb.FieldByName['prieksmets'] + '"');
-  Itm.SubItems.Add(sltb2.FieldByName['nosaukums']);
-  Itm.SubItems.Add(sltb.FieldByName['kabinets']);
-  sltb.Next
+Try
+  begin
+    for loop := 0 to sltb.RowCount-1 do
+      begin
+        Itm := ListView1.Items.Add;
+        Itm.Caption := sltb.FieldByName['vards'];
+        sltb2 := slDb.GetTable('select nosaukums from prieksmeti where textid = "' + sltb.FieldByName['prieksmets'] + '"');
+        Itm.SubItems.Add(sltb2.FieldByName['nosaukums']);
+        Itm.SubItems.Add(sltb.FieldByName['kabinets']);
+        sltb.Next
+      end;
+  end;
+Except
+MessageBox(0, 'Informâcija', 'Nekas netika atrasts! Mçìini velreiz vçlâk.', +mb_OK +mb_ICONWARNING)
 end;
-end
-else
-Application.MessageBox('Make sure the music is playing.',
-			   'CD PLayer Instructions', 0);
 
 end;
 end.
