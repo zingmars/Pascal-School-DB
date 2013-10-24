@@ -38,6 +38,7 @@ var   slDBpath: string;
       sldb: TSQLiteDatabase;
       sltb: TSQLiteTable;
       sltb2: TSQLiteTable;
+      fuckThis: boolean;
 
       Col: TListColumn;
       Itm: TListItem;
@@ -127,12 +128,18 @@ Try
         sltb2 := slDb.GetTable('select nosaukums from prieksmeti where textid = "' + sltb.FieldByName['prieksmets'] + '"');
         Itm.SubItems.Add(sltb2.FieldByName['nosaukums']);
         Itm.SubItems.Add(sltb.FieldByName['kabinets']);
+        fuckThis := true;
         sltb.Next
       end;
   end;
 Except
-MessageBox(0, 'Informâcija', 'Nekas netika atrasts! Mçìini velreiz vçlâk.', +mb_OK +mb_ICONWARNING)
+MessageBox(0, 'This box should never be visible.', 'Catastrophic failure.', +mb_OK +mb_ICONWARNING)
 end;
 
+if not fuckThis then
+  begin
+    MessageBox(0, 'Nekas netika atrasts! Pârbaudi kveriju un mçìini velreiz!', 'Informâcija', +mb_OK +mb_ICONWARNING);
+  end;
 end;
+
 end.
