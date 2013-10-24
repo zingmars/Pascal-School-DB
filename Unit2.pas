@@ -13,15 +13,13 @@ type
     SQLConnection1: TSQLConnection;
     ListView1: TListView;
     Button2: TButton;
+
     procedure FormCreate(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Button2Click(Sender: TObject);
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var
@@ -33,43 +31,36 @@ implementation
 {$R *.dfm}
 
 uses SQLite3, SQLiteTable3, project;
-var   slDBpath: string;
+var   //SQL
+      slDBpath: string;
       sSQL: String;
       sldb: TSQLiteDatabase;
       sltb: TSQLiteTable;
       sltb2: TSQLiteTable;
-      fuckThis: boolean;
 
+      //Logs
+      error: boolean;
       Col: TListColumn;
       Itm: TListItem;
-
       loop: integer;
 
 procedure TForm2.Button1Click(Sender: TObject);
 begin
-Unit2.Form2.Close;
-Form1.Show;
+  Unit2.Form2.Close;
+  Form1.Show;
 end;
 
 procedure TForm2.Button2Click(Sender: TObject);
 begin
-Form1.Show;
-Form2.Close;
+  Form1.Show;
+  Form2.Close;
 end;
-
-//Ðo palaiþ tad, kad tiek fokusçta forma.
-//Piezîme - to palaiþ katru reizi, kad tiek fokusçts dotais logs.
-procedure TForm2.FormActivate(Sender: TObject);
-begin
-//
-end;
-
 
 //Aizveram programmu, jo mçs nemâkam properly tikt galâ ar logiem.
 procedure TForm2.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-if Form1.Showing = false then
-Form1.Close;
+  if Form1.Showing = false then
+  Form1.Close;
 end;
 
 //Tiek izsaukts tad, kad tiek palaista forma.
@@ -79,6 +70,7 @@ begin
 slDBPath := ExtractFilepath(application.exename) + '\pascal.db';
 sldb := TSQLiteDatabase.Create(slDBPath);
 
+//Izveidojam logu
 {
 Kâ strâdâ (jo dokumentâcija neeksistç):
 Col := ListView1.Columns.add;
@@ -103,7 +95,7 @@ Col.Caption := 'Kabinets';
 Col.Alignment := taCenter;
 Col.Width := ListView1.Width div 3;
 
-//Pievienojam visu ko var pievienot.
+//Pievienojam informâciju no datubâzes.
 {
 Kâ strâdâ:
 Itm := ListView1.Items.Add;
@@ -128,7 +120,7 @@ Try
         sltb2 := slDb.GetTable('select nosaukums from prieksmeti where textid = "' + sltb.FieldByName['prieksmets'] + '"');
         Itm.SubItems.Add(sltb2.FieldByName['nosaukums']);
         Itm.SubItems.Add(sltb.FieldByName['kabinets']);
-        fuckThis := true;
+        error := true;
         sltb.Next
       end;
   end;
@@ -136,7 +128,7 @@ Except
 MessageBox(0, 'This box should never be visible.', 'Catastrophic failure.', +mb_OK +mb_ICONWARNING)
 end;
 
-if not fuckThis then
+if not error then
   begin
     MessageBox(0, 'Nekas netika atrasts! Pârbaudi kveriju un mçìini velreiz!', 'Informâcija', +mb_OK +mb_ICONWARNING);
   end;

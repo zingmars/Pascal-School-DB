@@ -10,13 +10,11 @@ type
     Button1: TButton;
     Edit1: TEdit;
     ComboBox1: TComboBox;
+
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
-    Function ReturnData : string;
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 var
   Form1: TForm1;
@@ -28,30 +26,23 @@ uses Unit2;
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin
+
 if ComboBox1.ItemIndex = -1 then
-MessageBox(0, 'Klume', 'Ludzu noradiet meklesanas veidu', +mb_OK +mb_ICONWARNING)
-//ShowMessage('')
+  MessageBox(0, 'Nav norādīts meklēšanas veids! Norādi meklēšanas veidu un mēģini velreiz.', 'Kļūda!', +mb_OK +mb_ICONWARNING)
 else
-begin
-//Atver otro formu.
-Application.CreateForm(TForm2, Form2);
-Form2.Show;
-Form1.Hide;
-end;
+  begin
+  //Atver otro formu.
+  Application.CreateForm(TForm2, Form2);
+  Form2.Show;
+  Form1.Hide;
+  end;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   ComboBox1.AddItem('Kabineta nr.', nil);
   ComboBox1.AddItem('Skolotāja', nil);
-  ComboBox1.AddItem('Atslēgvārdiem', nil);
   ComboBox1.AddItem('Priekšmeta',nil);
-end;
-
-function TForm1.ReturnData: string;
-begin
-//Rezultātu logs izsauc šo funkciju lai iegūtu informāciju.
-Result := Edit1.Text;
 end;
 
 end.
