@@ -36,12 +36,13 @@ uses SQLite3, SQLiteTable3, project;
 var   slDBpath: string;
       sSQL: String;
       sldb: TSQLiteDatabase;
-      sltb: TSQLIteTable;
+      sltb: TSQLiteTable;
+      sltb2: TSQLiteTable;
 
       Col: TListColumn;
       Itm: TListItem;
 
-
+      loop: integer;
 
 procedure TForm2.Button1Click(Sender: TObject);
 begin
@@ -73,16 +74,18 @@ end;
 //Tiek izsaukts tad, kad tiek palaista forma.
 procedure TForm2.FormCreate(Sender: TObject);
 begin
-//Datubâze
+//Datubâzes initializâcija
 slDBPath := ExtractFilepath(application.exename) + '\pascal.db';
 sldb := TSQLiteDatabase.Create(slDBPath);
 
-//Kolonas ir tâdâ kârtîbâ, kâdâ tu tâs pievieno.
-{ Kâ strâdâ (jo dokumentâcija neeksistç):
+{
+Kâ strâdâ (jo dokumentâcija neeksistç):
 Col := ListView1.Columns.add;
 Col.Caption := <string>;
 Col.Alignment := <integer>; //iespçjamie varianti: taLeftJustify, taRightJustify, taCenter.
-Col.Width := <integer>; }
+Col.Width := <integer>;
+//Kolonas ir tâdâ kârtîbâ, kâdâ tu tâs pievieno.
+}
 
 Col := ListView1.Columns.Add;
 Col.Caption := 'Pasniedzçjs';
@@ -99,23 +102,15 @@ Col.Caption := 'Kabinets';
 Col.Alignment := taCenter;
 Col.Width := ListView1.Width div 3;
 
-//Pievienojam visu ko var pievienot. (TODO: Izvelkam SQL)
-//BUG: Var iezîmçt tikai 1. kolonas datus. Vainoju Embarcadero. IDGAF.
-{ Kâ strâdâ:
+//Pievienojam visu ko var pievienot.
+{
+Kâ strâdâ:
 Itm := ListView1.Items.Add;
 Itm.Caption := <string>;
 Item.SubItem.Add(<string); //pievieno datus nâkamajâ kolonâ. Iet pçc kârtas.
 //Var pievienot tik substring, cik vajag, bet mums ir tikai 3 kolonas.
-//Liekie subitems tiks ignorçti, un nebûs parâdîti. }
-Itm := ListView1.Items.Add;
-Itm.Caption := 'DEBUG';
-Itm.SubItems.Add('Searchpam: ' + Form1.Edit1.Text);
-Itm.SubItems.Add('Searchtype: ' + IntToStr(Form1.ComboBox1.ItemIndex));
-
-{   ComboBox1.AddItem('Kabineta nr.', nil);
-  ComboBox1.AddItem('Skolotâja', nil);
-  ComboBox1.AddItem('Priekðmeta',nil);
-  }
+//Liekie subitems tiks ignorçti, un nebûs parâdîti.
+}
 case Form1.ComboBox1.ItemIndex of
   0: sSQL := 'select * from skolotaji where kabinets like ' + Form1.Edit1.Text;
   1: sSQL := 'select * from skolotaji where vards like "%' + Form1.Edit1.Text + '%"';
@@ -123,22 +118,21 @@ case Form1.ComboBox1.ItemIndex of
 end;
 sltb := slDb.GetTable(sSQL);
 
-Itm := ListView1.Items.Add;
-Itm.Caption := sltb.FieldByName['vards'];
-Itm.SubItems.Add(sltb.FieldByName['prieksmets']);
-Itm.SubItems.Add(sltb.FieldByName['kabinets']);
-
+if sltb.FieldByName['vards'] <> '' then
+begin
+for loop := 0 to sltb.RowCount-1 do
+begin
+  Itm := ListView1.Items.Add;
+  Itm.Caption := sltb.FieldByName['vards'];
+  sltb2 := slDb.GetTable('select nosaukums from prieksmeti where textid = "' + sltb.FieldByName['prieksmets'] + '"');
+  Itm.SubItems.Add(sltb2.FieldByName['nosaukums']);
+  Itm.SubItems.Add(sltb.FieldByName['kabinets']);
+  sltb.Next
+end;
+end
+else
+Application.MessageBox('Make sure the music is playing.',
+			   'CD PLayer Instructions', 0);
 
 end;
-
-{
-sldb := TSQLiteDatabase.Create(slDBPath);
-sltb := slDb.GetTable('SELECT * FROM `skolotaji` WHERE `id` = 1');
-StaticText1.Caption := sltb.FieldByName['vards'] + ' ' + sltb.FieldByName['uzvards'];
-dieHardFix := sltb.FieldByName['prieksmets'];
-StaticText3.Caption := sltb.FieldByName['kabinets'];
-sltb2 := slDb.GetTable('SELECT * FROM `prieksmeti` WHERE `textid` = "'+ dieHardFix +'"');
-end;
-}
-
 end.
