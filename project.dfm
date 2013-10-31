@@ -1,11 +1,10 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  BorderStyle = bsToolWindow
-  Caption = 
-    'Search Simulator 2013 Professional Edition | v 3.0.82  | Updates' +
-    ' Available | Registered to: Kristaps "nazis" Naglis'
-  ClientHeight = 35
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Mekl'#275't'#257'js'
+  ClientHeight = 31
   ClientWidth = 674
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -14,7 +13,6 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Button1: TButton
@@ -41,6 +39,10 @@ object Form1: TForm1
     Height = 21
     Style = csDropDownList
     TabOrder = 2
-    TextHint = '-- k'#257' mekl'#275't --'
+    TextHint = '-- Mekl'#275#353'anas veids --'
+    Items.Strings = (
+      'Kabineta nr.'
+      'Skolot'#257'ja v'#257'rds'
+      'Priek'#353'mets')
   end
 end

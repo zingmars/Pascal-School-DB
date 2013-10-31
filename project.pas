@@ -11,7 +11,6 @@ type
     Edit1: TEdit;
     ComboBox1: TComboBox;
 
-    procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
   private
   public
@@ -36,13 +35,6 @@ else
   Form2.Show;
   Form1.Hide;
   end;
-end;
-
-procedure TForm1.FormCreate(Sender: TObject);
-begin
-  ComboBox1.AddItem('Kabineta nr.', nil);
-  ComboBox1.AddItem('Skolotāja', nil);
-  ComboBox1.AddItem('Priekšmeta',nil);
 end;
 
 end.

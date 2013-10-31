@@ -10,7 +10,6 @@ uses
 type
   TForm2 = class(TForm)
     Button1: TButton;
-    SQLConnection1: TSQLConnection;
     ListView1: TListView;
     Button2: TButton;
 
@@ -40,7 +39,6 @@ var   //SQL
 
       //Logs
       error: boolean;
-      Col: TListColumn;
       Itm: TListItem;
       loop: integer;
 
@@ -69,31 +67,6 @@ begin
 //Datubâzes initializâcija
 slDBPath := ExtractFilepath(application.exename) + '\pascal.db';
 sldb := TSQLiteDatabase.Create(slDBPath);
-
-//Izveidojam logu
-{
-Kâ strâdâ (jo dokumentâcija neeksistç):
-Col := ListView1.Columns.add;
-Col.Caption := <string>;
-Col.Alignment := <integer>; //iespçjamie varianti: taLeftJustify, taRightJustify, taCenter.
-Col.Width := <integer>;
-//Kolonas ir tâdâ kârtîbâ, kâdâ tu tâs pievieno.
-}
-
-Col := ListView1.Columns.Add;
-Col.Caption := 'Pasniedzçjs';
-Col.Alignment := taCenter;
-Col.Width := ListView1.Width div 3;
-
-Col := ListView1.Columns.Add;
-Col.Caption := 'Priekðmets';
-Col.Alignment := taCenter;
-Col.Width := ListView1.Width div 3;
-
-Col := ListView1.Columns.Add;
-Col.Caption := 'Kabinets';
-Col.Alignment := taCenter;
-Col.Width := ListView1.Width div 3;
 
 //Pievienojam informâciju no datubâzes.
 {
