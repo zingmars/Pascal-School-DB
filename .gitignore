@@ -5,10 +5,10 @@
 __history
 *.drc
 *.map
-*.exe
-bin/*
+
+
 *.local
 *.identcache
-Win32/
+
 *.res
 *.dproj.local
